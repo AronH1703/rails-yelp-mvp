@@ -1,14 +1,20 @@
-<p style="color: green"><%= notice %></p>
+<div class="container mt-5">
+  <p class="text-success"><%= notice %></p> <!-- Bootstrap text color for green -->
 
-<h1>Restaurants</h1>
+  <h1 class="display-4 mb-4">Restaurants</h1> <!-- Larger, stylish heading -->
 
-<div id="restaurants">
-  <% @restaurants.each do |restaurant| %>
-    <%= render restaurant %>
-    <p>
-      <%= link_to "Show this restaurant", restaurant %>
-    </p>
-  <% end %>
+  <div id="restaurants" class="list-group">
+    <% @restaurants.each do |restaurant| %>
+      <div class="list-group-item mb-3">
+        <%= render restaurant %> <!-- Rendered partial for each restaurant -->
+        <p>
+          <%= link_to "Show this restaurant", restaurant, class: "btn btn-primary btn-sm mt-2" %> <!-- Styled button -->
+        </p>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="mt-2 pb-4">
+    <%= link_to "New restaurant", new_restaurant_path, class: "btn btn-success" %> <!-- Button for creating a new restaurant -->
+  </div>
 </div>
-
-<%= link_to "New restaurant", new_restaurant_path %>
